@@ -18,7 +18,13 @@ function AdviceSection() {
   };
 
   const handleMoreAdvice = () => {
-    fetchData();
+    fetchData()
+  }
+
+  const handleFavorites = () => {
+    if (!favoriteSlip.includes(slip.slip.advice)){
+      setFavoriteSlip((prevFavorites) => [...prevFavorites, slip.slip.advice]);
+    }
   }
 
 useEffect(() => {
@@ -29,12 +35,12 @@ useEffect(() => {
     <section>
       <h2>Advice Section</h2>
       {slip && slip.slip ? (
-      <AdviceSlip data={slip.slip.advice} handleMoreAdvice = {handleMoreAdvice} />
+      <AdviceSlip data={slip.slip.advice} handleMoreAdvice = {handleMoreAdvice} handleFavorites = {handleFavorites} />
       ) : (
     <p>Loading advice...</p>
   )}
       <section className="favourtite-slips-list">
-        <FavouriteSlipsList/>
+        <FavouriteSlipsList data = {favoriteSlip}/>
       </section>
     </section>
   )

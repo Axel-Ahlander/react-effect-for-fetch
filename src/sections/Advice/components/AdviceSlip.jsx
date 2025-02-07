@@ -6,7 +6,9 @@ function AdviceSlip(props) {
     <h3>Some advice</h3>
     <p>{props.data}</p>
     <button onClick = {props.handleMoreAdvice}>Get More Advice</button>
-    <button>Save to Favourties</button>
+    <button onClick={props.handleFavorites}>Save to Favourties</button>
+    <br />
+    <br />
     </div>
   )
 }
